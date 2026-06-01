@@ -494,55 +494,82 @@ body {
         margin: 10px 3%;
     }
 }
-/* 10. تنسيق زرار الواتساب الطاير */
-.whatsapp-float {
+/* 12. شريط التواصل العايم */
+.social-float-bar {
     position: fixed;
     bottom: 30px;
-    left: 30px; /* هيظهر على الشمال تحت عشان ما يغطيش على الكلام العربي */
-    background-color: #25d366; /* لون الواتساب الأصلي */
-    color: #fff;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    left: 30px; /* مكانهم على الشمال تحت */
+    display: flex;
+    flex-direction: column; /* يرصهم فوق بعض */
+    align-items: center;
+    gap: 12px; /* المسافة بين كل زرار والتاني */
     z-index: 10000;
+}
+
+/* التنسيق العام لكل الأزرار */
+.social-icon {
+    color: #fff;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    transition: transform 0.3s, background-color 0.3s;
-   
-    /* تأثير أنيميشن خفيف عشان يلفت الانتباه */
-    animation: pulse 2s infinite;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s, filter 0.3s;
 }
 
-.whatsapp-float:hover {
-    background-color: #128c7e; /* يغمق سنة لما تقف عليه */
-    transform: scale(1.1); /* يكبر شوية */
+.social-icon:hover {
+    transform: scale(1.1) translateY(-3px);
+    filter: brightness(1.1); /* يفتح اللون سنة لما تقف عليه */
 }
 
-/* حركة النبض */
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
-    }
-    70% {
-        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-    }
+/* تظبيط مقاسات الأزرار (الفيسبوك والتليجرام أصغر شوية) */
+.social-icon.telegram, .social-icon.facebook {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
 }
 
-/* تظبيطه عالموبايل عشان ما يبقاش ضخم قوي */
+/* الواتساب يفضل كبير ومميز وبيهتز */
+.social-icon.whatsapp {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    background-color: #25d366;
+    animation: pulse-bar 2s infinite;
+}
+
+/* ألوان باقي الأزرار الأصلية */
+.social-icon.telegram {
+    background-color: #0088cc; /* لون التليجرام */
+}
+
+.social-icon.facebook {
+    background-color: #1877f2; /* لون الفيسبوك */
+}
+
+/* حركة النبض للواتساب */
+@keyframes pulse-bar {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* تظبيط المقاسات عالموبايل عشان السكرين */
 @media screen and (max-width: 600px) {
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        font-size: 25px;
+    .social-float-bar {
         bottom: 20px;
         left: 20px;
+        gap: 8px;
+    }
+    .social-icon.whatsapp {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+    }
+    .social-icon.telegram, .social-icon.facebook {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
     }
 }
