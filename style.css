@@ -579,3 +579,19 @@ body {
         font-size: 16px;
     }
 }
+/* توحيد أحجام الأيقونات العايمة على جميع الشاشات */
+.social-float-bar a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 50px !important; /* حجم الدائرة الثابت */
+    height: 50px !important;
+    border-radius: 50% !important;
+    text-decoration: none !important;
+}
+
+.social-float-bar a i {
+    font-size: 24px !important; /* حجم الأيقونة الموحد جوه الدائرة */
+    margin: 0 !important;
+    padding: 0 !important;
+}
