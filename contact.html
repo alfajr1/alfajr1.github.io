@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Fagr laser - أطلب تصميمك </title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/Layer 0.png" alt="لوجو كابتن ليزر">
+            <span>Al fagr Laser</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="index.html#products">معرض أعمالنا</a></li>
+            <li><a href="contact.html">اطلب تصميمك</a></li>
+        </ul>
+    </nav>
+
+    <section class="contact-section">
+        <div class="contact-box">
+            <h2><i class="fa-solid fa-laser-cutter"></i> اطلب تصميمك المخصص الآن</h2>
+            <p>سواء كان تابلوه خشب، علبة هدايا، أو ميداليات أكريليك.. اكتب تفاصيل طلبك وسنتواصل معك فوراً لتنفيذه.</p>
+           
+            <form action="https://formspree.io/xbdbzlob" method="POST">
+                <div class="input-group">
+                    <label>أسمك</label>
+                    <input type="text" name="name" placeholder="اكتب اسمك هنا..." required>
+                </div>
+
+                <div class="input-group">
+                    <label>بريدك الإلكتروني أو رقم الواتساب</label>
+                    <input type="text" name="contact_info" placeholder="اكتب إيميلك أو رقمك للتواصل..." required>
+                </div>
+
+                <div class="input-group">
+                    <label>تفاصيل التصميم المطلوب</label>
+                    <textarea name="message" rows="5" placeholder="اكتب المقاسات، نوع الخامات (خشب/أكريليك)، وأي تفاصيل تانية عايزها..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">إرسال الطلب عبر الإيميل</button>
+            </form>
+           
+            <a href="index.html" class="back-home-link">← العودة للصفحة الرئيسية</a>
+        </div>
+    </section>
+
+</body>
+</html>

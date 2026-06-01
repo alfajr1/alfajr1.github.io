@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Fagr Laser</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/Layer 0.png" alt="لوجو الفجر ليزر">
+            <span>Al Fagr Laser</span>
+        </div>
+       
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-links" id="nav-list">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="portfolio.html">معرض أعمالنا</a></li>
+            <li><a href="contact.html">اطلب تصميمك</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>إبداع وفخامة في تصاميم الليزر</h1>
+            <p>متخصصون في التقطيع والحفر الدقيق على الأخشاب، الأكريليك، والجلود بأحدث التقنيات</p>
+            <a href="contact.html" class="cta-btn">اطلب أوردر الآن</a>
+        </div>
+    </section>
+    <section class="products-section">
+        <h2 class="section-title">من أعمالنا ومنتجاتنا</h2>
+       
+        <div class="products-container">
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="images/wood.jpg" alt="شغل ليزر خشب">
+                </div>
+                <h3>ديكورات وتابلوهات خشبية</h3>
+                <p>حفر وتقطيع دقيق على أجود أنواع الأخشاب والـ MDF لتزيين الحوائط والمنازل.</p>
+                <a href="contact.html" class="order-btn">اطلب الآن</a>
+            </div>
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="images/acrylic.jpg" alt="شغل أكريليك">
+                </div>
+                <h3>ميداليات وهدايا أكريليك</h3>
+                <p>تشكيل وحفر أكريليك شفاف وملون، لوحات مضيئة، وميداليات مخصصة بالأسماء.</p>
+                <a href="contact.html" class="order-btn">اطلب الآن</a>
+            </div>
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="images/boxes.jpg" alt="بوكسات هدايا">
+                </div>
+                <h3>علب وبوكسات هدايا</h3>
+                <p>تصميم وتصنيع علب مصممة خصيصاً للمناسبات، السبوع، وبوكسات الرمضانيات.</p>
+                <a href="contact.html" class="order-btn">اطلب الآن</a>
+            </div>
+        </div>
+    </section>
+    <script>
+        const menu = document.querySelector('.menu-toggle');
+        const menuLinks = document.querySelector('.nav-links');
+
+        menu.addEventListener('click', function() {
+            menuLinks.classList.toggle('active');
+        });
+    </script>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>جميع الحقوق محفوظة © 2026 لـ <span class="highlight">AL Fagr Laser</span></p>
+            <div class="social-links">
+                <a href="#" target="_blank" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" title="إنستجرام"><i class="fab fa-instagram"></i></a>
+                <a herv="#" target="_blank" title="تليجرام"><i class="fab fa_telegram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <-- زرار الواتساب --!>
+    <a href="http://wa.me/201273485811" class="whatsapp-float" target="_blank" title="تواصل معنا عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
