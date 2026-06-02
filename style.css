@@ -595,3 +595,80 @@ body {
     margin: 0 !important;
     padding: 0 !important;
 }
+/* تنسيق شريط التنقل بالكامل */
+.navbar {
+    background-color: #1a1a1a; /* لون غامق فخم يليق بالبراند */
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    direction: rtl; /* عشان الترتيب يبدأ من اليمين للشمال */
+}
+
+/* تنسيق اللوجو والاسم */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo {
+    width: 45px; /* حجم مثالي للوجو فوق */
+    height: 45px;
+    object-fit: contain;
+}
+
+.brand-name {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* تنسيق اللينكات والحركة الانسيابية */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+/* حركة الخط السحرية اللي بتفرش من النص */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #ffb703; /* اللون الأصفر الدهبي الرايق بتاعك */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: #ffb703; /* يقلب دهبي لما تقف عليه */
+}
