@@ -672,3 +672,275 @@ body {
 .nav-item.active {
     color: #ffb703; /* يقلب دهبي لما تقف عليه */
 }
+/* ================= تنظيف وتظبيط الـ Navbar بالكامل ================= */
+.navbar {
+    background-color: #1a1a1a !important;
+    padding: 15px 0 !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+    direction: rtl !important;
+}
+
+.nav-container {
+    width: 85% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.logo-container {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+}
+
+.nav-logo {
+    width: 65px !important; /* حجم اللوجو الكبير الواضح */
+    height: 65px !important;
+    object-fit: contain !important;
+    border-radius: 50% !important;
+    background-color: transparent !important;
+}
+
+.brand-name {
+    color: #fff !important;
+    font-size: 26px !important;
+    font-weight: bold !important;
+}
+
+.nav-links {
+    display: flex !important;
+    gap: 30px !important;
+}
+
+.nav-item {
+    color: #bbb !important;
+    text-decoration: none !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    position: relative !important;
+    padding: 5px 0 !important;
+    transition: color 0.3s ease !important;
+}
+
+/* حركة الخط اللي بيفرش من النص */
+.nav-item::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 50 !important;
+    width: 0 !important;
+    height: 2px !important;
+    background-color: #ffb703 !important;
+    transition: width 0.3s ease, left 0.3s ease !important;
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+    width: 100% !important;
+    left: 0 !important;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: #ffb703 !important;
+}
+
+.mobile-menu-toggle {
+    background: none !important;
+    border: none !important;
+    color: #ffb703 !important;
+    font-size: 30px !important;
+    cursor: pointer !important;
+    display: none !important; /* مخفي في الكمبيوتر */
+    padding: 0 !important;
+    outline: none !important;
+}
+
+/* ================= الميديا كويري الصايعة للموبايل (بتجبر السيرفر يفرمل القديم) ================= */
+@media screen and (max-width: 768px) {
+    .nav-container {
+        width: 90% !important;
+    }
+   
+    .nav-links {
+        display: none !important; /* اختفاء القائمة على الموبايل في العادي */
+        flex-direction: column !important;
+        position: absolute !important;
+        top: 90px !important;
+        left: 0 !important;
+        width: 100% !important;
+        background-color: #1a1a1a !important;
+        padding: 20px 0 !important;
+        text-align: center !important;
+        gap: 20px !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+        z-index: 999 !important;
+    }
+
+    /* بتفتح لما تضغط على الـ 3 خطوط */
+    .nav-links.active {
+        display: flex !important;
+    }
+   
+    .mobile-menu-toggle {
+        display: block !important; /* إظهار الـ 3 خطوط */
+    }
+   
+    .brand-name { font-size: 20px !important; }
+    .nav-logo { width: 60px !important; height: 60px !important; }
+}
+/* ================= Features Section Style ================= */
+.features-section {
+    background-color: #121212; /* خلفية أغمق سنة من الهيدر عشان تفصل */
+    padding: 80px 0;
+    direction: rtl;
+    text-align: center;
+}
+/* تنسيق العنوان الأساسي ليكون في النص */
+.section-title h2 {
+    color: #ffffff !important;
+    font-size: 32px !important;
+    font-weight: bold !important;
+    margin-bottom: 50px !important;
+    position: relative !important;
+    display: inline-block !important; /* عشان الخطوط تيجي على مقاس الكلمة بالظبط */
+    border-bottom: none !important; /* نلغي أي خط قديم تماماً */
+}
+
+/* الخط الدهبي اللي فوق الجملة */
+.section-title h2::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -15px !important; /* مكانه فوق الكلام */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 80px !important; /* طول الخط */
+    height: 3px !important; /* سمك الخط */
+    background-color: #ffb703 !important;
+    border-radius: 2px !important;
+}
+
+/* الخط الدهبي اللي تحت الجملة */
+.section-title h2::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -15px !important; /* مكانه تحت الكلام */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 80px !important; /* طول الخط */
+    height: 3px !important; /* سمك الخط */
+    background-color: #ffb703 !important;
+    border-radius: 2px !important;
+}
+
+/* عشان نلغي كود الـ div القديم وميعملش خط تالت ملوش لازمة */
+.title-line {
+    display: none !important;
+}
+
+/* حاوية الكروت */
+.features-container {
+    width: 85% !important;
+    margin: 0 auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important; /* توزيع مرن حسب الشاشة */
+    gap: 30px !important;
+    direction: rtl !important;
+}
+
+/* تنسيق الكرت الفردي */
+.feature-card {
+    background-color: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    padding: 40px 25px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* حركة الكرت لما الماوس ييجي عليه */
+.feature-card:hover {
+    transform: translateY(-10px); /* يرتفع لفوق */
+    border-color: #ffb703; /* الحواف تنور دهبي */
+    box-shadow: 0 10px 20px rgba(255, 183, 3, 0.1);
+}
+
+/* الأيقونات الدهبي */
+.feature-icon {
+    font-size: 40px;
+    color: #ffb703;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1); /* الأيقونة تكبر سنة مع الهوفر */
+}
+
+.feature-card h3 {
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.feature-card p {
+    color: #aaaaaa;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* توافق السيكشن مع شاشات الموبايل */
+@media screen and (max-width: 768px) {
+    .features-section {
+        padding: 50px 0;
+    }
+   
+    /* حاوية الكروت */
+    .features-container {
+        width: 100% !important;
+        padding: 10px 20px !important; /* قللنا البادنج اللي تحت عشان نشيل الفراغ */
+        display: flex !important;
+        overflow-x: auto !important; /* بيشغل السحب */
+        scroll-snap-type: x mandatory !important;
+        gap: 15px !important;
+        direction: rtl !important;
+        scrollbar-width: auto !important; /* هنظهر شريط سحب رفيع جداً عشان الماوس يعرف يتحرك منه */
+    }
+
+    /* تظبيط شكل شريط السحب على الكمبيوتر عشان ما يبقاش شكله وحش */
+    .features-container::-webkit-scrollbar {
+        height: 4px !important; /* شريط رفيع جداً دهبي تحت الكروت */
+    }
+    .features-container::-webkit-scrollbar-thumb {
+        background-color: #ffb703 !important;
+        border-radius: 10px !important;
+    }
+
+    /* ضبط طول الكارت وحجمه لمنع الفراغ اللي تحت */
+    .feature-card {
+        flex: 0 0 75% !important; /* صغرنا العرض سنة عشان يظهر طرف اللي جنبه */
+        scroll-snap-align: center !important;
+        padding: 20px 15px !important; /* تقليل المساحات الداخلية لتصغير الطول */
+        height: auto !important; /* يخلي طول الكارت على قد الكلام بالظبط */
+        min-height: 220px !important; /* حد أدنى للطول عشان الكروت تطلع مقاس واحد */
+        box-sizing: border-box !important;
+    }
+
+   
+    .section-title h2 {
+        font-size: 26px;
+    }
+}
+
+/* إلغاء الخط الموروث القديم من كلاس العنوان الرئيسي */
+.features-section .section-title::after,
+.features-section .section-title::before,
+.features-section .section-title {
+    border-bottom: none !important;
+    background: none !important;
+}

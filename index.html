@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Al Fajr Laser</title>
-    <link rel="stylesheet" href="style.css?v=6.1">
+    <link rel="stylesheet" href="style.css?v=6.2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -19,8 +19,12 @@
         <div class="nav-links">
             <a href="index.html" class="nav-item active">الرئيسية</a>
             <a href="portfolio.html" class="nav-item">معرض أعمالنا</a>
-            <a href="contact.html" class="nav-item">اطلب تصميمك</a>
+            <a href="contact.html" class="nav-item">تواصل معنا</a>
         </div>
+
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
     </div>
 </nav>
 
@@ -31,6 +35,48 @@
             <a href="contact.html" class="cta-btn">اطلب أوردر الآن</a>
         </div>
     </section>
+
+    <section class="features-section">
+        <div class="section-title">
+        <h2>ليه تختار الفجر ليزر؟</h2>
+    </div>
+
+    <div class="features-container">
+                <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-tags"></i>
+            </div>
+            <h3>أسعار تنافسية</h3>
+            <p>بنقدملك أفضل قيمة مقابل سعر في السوق، مع عروض وخصومات خاصة للكميات وأصحاب المحلات والشركات.</p>
+        </div>
+
+                <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <h3>سرعة في التنفيذ</h3>
+            <p>وقتك يهمنا، وعشان كده بنلتزم بتسليم الأوردرات في المواعيد المحددة بالظبط مع الحفاظ على أعلى معايير الجودة.</p>
+        </div>
+
+                <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-gem"></i>
+            </div>
+            <h3>خامات فائقة الجودة</h3>
+            <p>كل المواد الخام المستخدمة بنختارها بعناية عشان نضمن لك منتج فخم يعيش معاك العمر كله ويشرفك قدام عملائك.</p>
+        </div>
+
+            <div class="features-container">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-bullseye"></i>
+            </div>
+            <h3>دقة متناهية</h3>
+            <p>بنستخدم أحدث ماكينات الليزر لضمان أعلى دقة في التقطيع والحفر على الأخشاب والأكريليك والجلود بدون أي أخطاء.</p>
+        </div>
+
+    </div>
+</section>
     <section class="products-section">
         <h2 class="section-title">من أعمالنا ومنتجاتنا</h2>
        
@@ -63,14 +109,15 @@
             </div>
         </div>
     </section>
-    <script>
-        const menu = document.querySelector('.menu-toggle');
-        const menuLinks = document.querySelector('.nav-links');
+<script>
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-        menu.addEventListener('click', function() {
-            menuLinks.classList.toggle('active');
-        });
-    </script>
+    menuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+    });
+</script>
+
     <footer class="main-footer">
         <div class="footer-content">
             <p>جميع الحقوق محفوظة © 2026 لـ <span class="highlight">AL Fajr Laser</span></p>
