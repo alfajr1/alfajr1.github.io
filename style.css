@@ -895,52 +895,131 @@ body {
 }
 
 /* توافق السيكشن مع شاشات الموبايل */
-@media screen and (max-width: 768px) {
-    .features-section {
-        padding: 50px 0;
-    }
-   
-    /* حاوية الكروت */
+@media screen and (max-width: 768px)
+    /* 1. الحاوية الأساسية - إجبار الفليكس تماماً */
     .features-container {
-        width: 100% !important;
-        padding: 10px 20px !important; /* قللنا البادنج اللي تحت عشان نشيل الفراغ */
         display: flex !important;
-        overflow-x: auto !important; /* بيشغل السحب */
-        scroll-snap-type: x mandatory !important;
+        grid-template-columns: none !important;
+        grid-auto-flow: column !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        width: 100% !important;
+        padding: 20px !important;
         gap: 15px !important;
+        box-sizing: border-box !important;
         direction: rtl !important;
-        scrollbar-width: auto !important; /* هنظهر شريط سحب رفيع جداً عشان الماوس يعرف يتحرك منه */
+        -webkit-overflow-scrolling: touch !important;
     }
 
-    /* تظبيط شكل شريط السحب على الكمبيوتر عشان ما يبقاش شكله وحش */
-    .features-container::-webkit-scrollbar {
-        height: 4px !important; /* شريط رفيع جداً دهبي تحت الكروت */
-    }
-    .features-container::-webkit-scrollbar-thumb {
-        background-color: #ffb703 !important;
-        border-radius: 10px !important;
-    }
-
-    /* ضبط طول الكارت وحجمه لمنع الفراغ اللي تحت */
+    /* 2. تحجيم الكرت وقفله بسقف محدد لمنع الطول الخيالي */
     .feature-card {
-        flex: 0 0 75% !important; /* صغرنا العرض سنة عشان يظهر طرف اللي جنبه */
-        scroll-snap-align: center !important;
-        padding: 20px 15px !important; /* تقليل المساحات الداخلية لتصغير الطول */
-        height: auto !important; /* يخلي طول الكارت على قد الكلام بالظبط */
-        min-height: 220px !important; /* حد أدنى للطول عشان الكروت تطلع مقاس واحد */
+        flex: 0 0 85% !important;
+        width: 85% !important;
+        max-width: 85% !important;
+        flex-shrink: 0 !important;
+        height: auto !important;
+        max-height: 320px !important; /* قفلنا الارتفاع هنا عشان ما يمطش لتحت */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding: 20px !important;
         box-sizing: border-box !important;
     }
 
-   
-    .section-title h2 {
-        font-size: 26px;
+    /* 3. تظبيط النصوص عشان تلف طبيعي جوه الكرت */
+    .feature-card h3,
+    .feature-card p {
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        white-space: normal !important; /* بيخلي الكلام ينزل سطور جديدة بدل ما يمط الكرت */
     }
-}
 
-/* إلغاء الخط الموروث القديم من كلاس العنوان الرئيسي */
-.features-section .section-title::after,
-.features-section .section-title::before,
-.features-section .section-title {
-    border-bottom: none !important;
-    background: none !important;
+    .feature-card p {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+    }
+
+    /* إخفاء السكرول بار المزعج */
+    .features-container::-webkit-scrollbar {
+        display: none !important;
+    }
+/* ==========================================
+   📌 تخصيص الأبعاد لكل كارت لوحده على الموبايل
+========================================== */
+@media screen and (max-width: 768px) {
+   
+    /* الحاوية الكبيرة للكروت */
+    section.features-section .features-container {
+        display: grid !important;
+        grid-template-columns: none !important;
+        grid-auto-flow: column !important;
+        grid-auto-columns: 82% !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        width: 100% !important;
+        padding: 20px 15px !important;
+        gap: 15px !important;
+        box-sizing: border-box !important;
+        direction: rtl !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* التنسيق المشترك لكل الكروت (العرض والـ Flex) */
+    section.features-section .features-container .feature-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding: 25px 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 🎯 هنا بنتحكم في طول كل كارت لوحده حسب ترتيبه */
+
+    /* الكارت الأول (خامات فائقة الجودة) */
+    section.features-section .features-container .feature-card:nth-child(1) {
+        height: 320px !important;
+    }
+
+    /* الكارت الثاني (دقة متناهية) */
+    section.features-section .features-container .feature-card:nth-child(2) {
+        height: 320px !important; /* عطيناه نفس طول الأولاني بالظبط عشان يتساووا */
+    }
+
+    /* الكارت الثالث */
+    section.features-section .features-container .feature-card:nth-child(3) {
+        height: 320px !important;
+    }
+
+    /* الكارت الرابع والأخير */
+    section.features-section .features-container .feature-card:nth-child(4) {
+        height: 320px !important;
+    }
+
+    /* ضبط السطور والنصوص جوه الكروت */
+    section.features-section .features-container .feature-card h3,
+    section.features-section .features-container .feature-card p {
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        white-space: normal !important;
+        display: block !important;
+    }
+
+    section.features-section .features-container .feature-card p {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        margin-top: 10px !important;
+    }
+
+    /* إخفاء شريط السحب */
+    section.features-section .features-container::-webkit-scrollbar {
+        display: none !important;
+    }
 }
