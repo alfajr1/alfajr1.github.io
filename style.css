@@ -893,66 +893,9 @@ body {
     font-size: 14px;
     line-height: 1.6;
 }
-
-/* توافق السيكشن مع شاشات الموبايل */
-@media screen and (max-width: 768px)
-    /* 1. الحاوية الأساسية - إجبار الفليكس تماماً */
-    .features-container {
-        display: flex !important;
-        grid-template-columns: none !important;
-        grid-auto-flow: column !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        overflow-y: hidden !important;
-        width: 100% !important;
-        padding: 20px !important;
-        gap: 15px !important;
-        box-sizing: border-box !important;
-        direction: rtl !important;
-        -webkit-overflow-scrolling: touch !important;
-    }
-
-    /* 2. تحجيم الكرت وقفله بسقف محدد لمنع الطول الخيالي */
-    .feature-card {
-        flex: 0 0 85% !important;
-        width: 85% !important;
-        max-width: 85% !important;
-        flex-shrink: 0 !important;
-        height: auto !important;
-        max-height: 320px !important; /* قفلنا الارتفاع هنا عشان ما يمطش لتحت */
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        padding: 20px !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 3. تظبيط النصوص عشان تلف طبيعي جوه الكرت */
-    .feature-card h3,
-    .feature-card p {
-        width: 100% !important;
-        max-width: 100% !important;
-        text-align: center !important;
-        white-space: normal !important; /* بيخلي الكلام ينزل سطور جديدة بدل ما يمط الكرت */
-    }
-
-    .feature-card p {
-        font-size: 14px !important;
-        line-height: 1.5 !important;
-    }
-
-    /* إخفاء السكرول بار المزعج */
-    .features-container::-webkit-scrollbar {
-        display: none !important;
-    }
-/* ==========================================
-   📌 تخصيص الأبعاد لكل كارت لوحده على الموبايل
-========================================== */
 @media screen and (max-width: 768px) {
    
-    /* الحاوية الكبيرة للكروت */
+    /* 1. الحاوية الكبيرة للكروت */
     section.features-section .features-container {
         display: grid !important;
         grid-template-columns: none !important;
@@ -966,9 +909,11 @@ body {
         box-sizing: border-box !important;
         direction: rtl !important;
         -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
     }
 
-    /* التنسيق المشترك لكل الكروت (العرض والـ Flex) */
+    /* 2. التنسيق المشترك لكل الكروت */
     section.features-section .features-container .feature-card {
         width: 100% !important;
         max-width: 100% !important;
@@ -980,29 +925,15 @@ body {
         box-sizing: border-box !important;
     }
 
-    /* 🎯 هنا بنتحكم في طول كل كارت لوحده حسب ترتيبه */
-
-    /* الكارت الأول (خامات فائقة الجودة) */
-    section.features-section .features-container .feature-card:nth-child(1) {
-        height: 320px !important;
-    }
-
-    /* الكارت الثاني (دقة متناهية) */
-    section.features-section .features-container .feature-card:nth-child(2) {
-        height: 320px !important; /* عطيناه نفس طول الأولاني بالظبط عشان يتساووا */
-    }
-
-    /* الكارت الثالث */
-    section.features-section .features-container .feature-card:nth-child(3) {
-        height: 320px !important;
-    }
-
-    /* الكارت الرابع والأخير */
+    /* 3. توحيد الارتفاع لكل كارت على حِدة غصب عن أي important قديم */
+    section.features-section .features-container .feature-card:nth-child(1),
+    section.features-section .features-container .feature-card:nth-child(2),
+    section.features-section .features-container .feature-card:nth-child(3),
     section.features-section .features-container .feature-card:nth-child(4) {
-        height: 320px !important;
+        height: 310px !important;
     }
 
-    /* ضبط السطور والنصوص جوه الكروت */
+    /* 4. تظبيط النصوص لتلتف تلقائياً */
     section.features-section .features-container .feature-card h3,
     section.features-section .features-container .feature-card p {
         width: 100% !important;
@@ -1018,8 +949,17 @@ body {
         margin-top: 10px !important;
     }
 
-    /* إخفاء شريط السحب */
-    section.features-section .features-container::-webkit-scrollbar {
+    /* 5. نسف الخط الدهبي التالت الزيادة تحت العنوان */
+    section.features-section h2::after,
+    section.features-section h2::before {
         display: none !important;
     }
+
+    /* 6. إخفاء سكرول بار الموبايل */
+    section.features-section .features-container::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+
 }
